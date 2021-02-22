@@ -1,0 +1,93 @@
+* {
+    /* width: 100%; */
+}
+
+body {
+    /* background-color: rgb(243, 215, 188); */
+    overflow-x: hidden;
+}
+
+#black-line {
+    width: auto;
+    height: 3vw;
+    background-color: black;
+}
+
+.time-title {
+    margin-left: 13vw;
+}
+
+.activity-title {
+    margin-left: 15vw;
+}
+
+.save-title {
+    margin-left: 19vw;
+}
+
+.divider {
+    /* width: 90%; */
+    height: 1vw;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1vw;
+    /* border-radius: 10px; */
+}
+
+/* div { */
+    /* } */
+    
+.time {
+    margin-left: auto;
+    margin-right: auto;
+    /* border: 2vw; */
+    padding-left: 4vw;
+    /* width: auto; */
+    /* box-sizing: content-box; */
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    /* width: 90%; */
+    /* box-shadow: 2px black; */
+    /* padding-left: 10vw; */
+    /* align-items: center; */
+    /* justify-items: center; */
+
+
+    /* outline-width: 10px; */
+    /* outline-color:  black; */
+    /* border-color: black; */
+    /* border-width: 3px; */
+    /* padding: vw; */
+    /* padding-top: 1vw */
+}
+
+.hour {
+    /* padding-left: 3vw; */
+    /* padding-top: 1vw */
+
+}
+
+.activity-div {
+    /* padding-left: 3vw; */
+    /* padding-top: 1vw */
+
+}
+
+.activity {
+    /* padding-left: 3vw; */
+    /* padding-top: 1vw */
+
+}
+
+.btn-div {
+    /* padding-left: 3vw; */
+    /* padding-top: 1vw */
+
+}
+
+.save-btn {
+    /* padding-left: 3vw; */
+    /* padding-top: 1vw */
+
+}
