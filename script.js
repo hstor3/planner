@@ -1,131 +1,47 @@
-// let time = document.getElementsByClassName("time");
-// let workHour = document.getElementById("hour");
-// let activeInput = document.getElementById("activity");
-// let saver = document.getElementById("save-btn");
-
+// clock displayed at top of page
 let now = moment().format("LLLL");
-
 $("#current").text(now);
 
+// correctly linked test
 console.log("hello");
 
-if ("#current" > now) {
-    document.getElementsByClassName("time").style.backgroundColor = "red"
-} else if ("#current" < now) {
-    document.getElementsByClassName("time").style.backgroundColor = "yellow"
+
+function backColor(timeSlot, index) {
+    // debugger
+if (moment(timeSlot).isBefore(moment())) {
+    document.getElementById(index).style.backgroundColor = "red"
+} else if (moment(timeSlot).isAfter(moment())) {
+    document.getElementById(index).style.backgroundColor = "yellow"
 } else {
-    document.getElementsByClassName("time").style.backgroundColor = "blue"
+    document.getElementById(index).style.backgroundColor = "blue"
+}
 };
 
-// saver.innerHTML.onClick = function() {
-// console.log("hi");
-// }   
-
-// $(saver).click(function() {
-// console.log("hi")
-// })
-
-
-
-// saver.innerHTML = console.log("hi");
-
-// console.log("Do: " + activeInput.val( ))
-// localStorage.setItem("text-field", input.val());
-// saver.addEventListener("click", saveText); 
-
-// function saveText() {
-// let saver = $("#save-btn");
-// }
-// activeInput = "";
-// $("activeInput").val("");
-// $("saver").val(activeInput);
-
-// let x = $("activeInput:text").val();
-
-// let x = activeInput.value;
-// document.getElementById("output").innerHTML = x;
-// let outputText = document.getElementById("outtie");
-
-// let info = (textVal.value === "");
-// outputText.value = console.log("You have successfully scheduled" + info + ".");
-// }
-// saveText("");
-// console.log(saveText)
-
-
-// function addInfo() {
-//     let li = document.createElement("li");
-//     let inputValue = activeInput.value;
-//     let t = document.createTextNode(inputValue);
-
-//     li.appendChild(t);
-//     if (inputValue === "") {
-//         console.log("write something!!")
-//     } else { 
-//         document.getElementById("UL").value = "";
-//     }
-
-
-
-// $(saver).on("click", function() {
-// event.preventDefault();
-// console.log(event);
-// console.log("Hi");
-// activeInput++;
-
-
-//     $("input[type="text"]").each(function() {
-//         let id = $(this).attr("id");
-//         let value = $(this).val();
-//         localStorage.setItem(id, value);
-// });
-// });
-// }
-// console.log(addInfo);
-// addInfo();
-// console.log(saver);
-
-// $("activity").on("click", function() {
-//     $("input[type="text"]").each(function() {
-//         let id = $(this).attr("id");
-//         let value = localStorage.getItem(id);
-
-//         $(this).val(value);
-//     });
-// });
-
-
-
-// localStorage.setItem("text-field")
-
-// ("MMMM DD YYYY, h:mm a");
-
-// if (now == moment().isAfter("now")) {
-//     document.getElementsByClassName("time").style.backgroundColor = "red";
-// }
-
 let timeSlots = [
-    "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"
+    "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm"
 ];
+
 
 $(document).ready(function () {
     for (let index = 0; index < timeSlots.length; index++) {
-        const element = timeSlots[index];
+        const time = timeSlots[index];
 
         let html = `
-        <div id=${index} class="time row m-1 text-dark bg-light border border-dark rounded">
-        <div class="hour col-3" id="hour">${element}
-        </div>
-        <div class="activity-div col-7 text-center" id="activity-div text-area">
-        <input class="activity text-center rounded" type="text" id="activity-${index}">
-        <ul class="outtie" id="outtie-${index}"></ul>
-        </div>
-        <div class="btn-div col-2" id="btn-div">
-        <button class="save-btn rounded" id="save-btn">Save</button>
-        </div>
+        <div id=${index} class="time row m-1 text-dark border border-dark rounded">
+            <div class="hour col-3" id="hour">${time}
+            </div>
+            <div class="activity-div col-7 text-center" id="activity-div text-area">
+                <input class="activity text-center rounded" type="text" id="activity-${index}">
+                <ul class="outtie" id="outtie-${index}"></ul>
+            </div>
+            <div class="btn-div col-2" id="btn-div">
+                <button class="save-btn rounded" id="save-btn">Save</button>
+            </div>
         </div>
         `
         $(".pre-scrollable").append(html);
+
+        backColor(time, index);
     }
 });
 
