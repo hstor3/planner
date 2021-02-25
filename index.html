@@ -20,6 +20,14 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 
 
+
+    <!-- <script>
+        $( function() {
+          $( "index" ).accordion({
+            collapsible: true
+          });
+        } );
+        </script> -->
 </head>
 
 <body class="bg-light">
@@ -28,145 +36,17 @@
         <div id="current" class="float-left text-white position-fixed"></div>
     </header>
     <div id="black-line"></div>
-    <!-- <div class="title row"> -->
     <div class="row">
-        <!-- <div class="time-title col" id="time-title">Time -->
         <div class="col">Time
         </div>
-        <!-- <div class="activity-title col text-center" id="activity-title text-area">Activity -->
         <div class="col text-center" id="text-area">Activity
         </div>
-        <!-- <div class="save-title col">Save</div> -->
         <div class="col">Save</div>
     </div>
 
     <div class="divider" id="divider"></div>
 
     <main class="pre-scrollable">
-
-        <!-- <button type="button" class="collapsible"> -->
-             <!-- <div class="time row m-1 bg-light border border-dark rounded"> -->
-                <!-- <div class="hour col-3" id="hour"> -->
-                <!-- </div> -->
-                <!-- <div class="activity-div col-7 text-center" id="activity-div text-area"> -->
-                    <!-- <input class="activity text-center rounded" type="text" id="activity to-do" name="text-field"> -->
-                    <!-- <span id="output"></span>  -->
-                    <!-- <output class="outtie" id="outtie"></output> -->
-                    <!-- <ul id="UL" class="UL"> -->
-                        <!-- <li></li> -->
-                    <!-- </ul> -->
-                <!-- </div> -->
-                <!-- <div class="btn-div col-2" id="btn-div"> -->
-                    <!-- <button class="save-btn rounded" id="save-btn">Save</button> -->
-                <!-- </div> -->
-            <!-- </div> -->
-            <!-- </button> -->
-
-            <!-- <div class="time row m-1 bg-light border border-dark rounded">
-                <div class="hour col-3" id="hour">10am
-                </div>
-                <div class="activity-div col-7 text-center" id="activity-div text-area">
-                    <input class="activity text-center rounded" type="text" id="activity to-do">
-                </div>
-                <div class="btn-div col-2" id="btn-div">
-                    <button class="save-btn rounded" id="save-btn">Save</button>
-                </div>
-            </div>
-            <div class="time row m-1 bg-light border border-dark rounded">
-                <div class="hour col-3" id="hour">11am
-                </div>
-                <div class="activity-div col-7 text-center" id="activity-div text-area">
-                    <input class="activity text-center rounded" type="text" id="activity to-do">
-                </div>
-                <div class="btn-div col-2" id="btn-div">
-                    <button class="save-btn rounded" id="save-btn">Save</button>
-                </div>
-            </div>
-            <div class="time row m-1 bg-secondary border border-dark rounded">
-                <div class="hour col-3" id="hour">12pm
-                </div>
-                <div class="activity-div col-7 text-center" id="activity-div text-area">
-                    <input class="activity text-center rounded" type="text" id="activity to-do">
-                </div>
-                <div class="btn-div col-2" id="btn-div">
-                    <button class="save-btn rounded" id="save-btn">Save</button>
-                </div>
-            </div>
-            <div class="time row m-1 bg-light border border-dark rounded">
-                <div class="hour col-3" id="hour">1pm
-                </div>
-                <div class="activity-div col-7 text-center" id="activity-div text-area">
-                    <input class="activity text-center rounded" type="text" id="activity to-do">
-                </div>
-                <div class="btn-div col-2" id="btn-div">
-                    <button class="save-btn rounded" id="save-btn">Save</button>
-                </div>
-            </div>
-            <div class="time row m-1 bg-light border border-dark rounded">
-                <div class="hour col-3" id="hour">2pm
-                </div>
-                <div class="activity-div col-7 text-center" id="activity-div text-area">
-                    <input class="activity text-center rounded" type="text" id="activity to-do">
-                </div>
-                <div class="btn-div col-2" id="btn-div">
-                    <button class="save-btn rounded" id="save-btn">Save</button>
-                </div>
-            </div>
-            <div class="time row m-1 bg-light border border-dark rounded">
-                <div class="hour col-3" id="hour">3pm
-                </div>
-                <div class="activity-div col-7 text-center" id="activity-div text-area">
-                    <input class="activity text-center rounded" type="text" id="activity to-do">
-                </div>
-                <div class="btn-div col-2" id="btn-div">
-                    <button class="save-btn rounded" id="save-btn">Save</button>
-                </div>
-            </div>
-            <div class="time row m-1 bg-light border border-dark rounded">
-                <div class="hour col-3" id="hour">4pm
-                </div>
-                <div class="activity-div col-7 text-center" id="activity-div text-area">
-                    <input class="activity text-center rounded" type="text" id="activity to-do">
-                </div>
-                <div class="btn-div col-2" id="btn-div">
-                    <button class="save-btn rounded" id="save-btn">Save</button>
-                </div>
-            </div>
-            <div class="time row m-1 bg-light border border-dark rounded">
-                <div class="hour col-3" id="hour">5pm
-                </div>
-                <div class="activity-div col-7 text-center" id="activity-div text-area">
-                    <input class="activity text-center rounded" type="text" id="activity to-do">
-                </div>
-                <div class="btn-div col-2" id="btn-div">
-                    <button class="save-btn rounded" id="save-btn">Save</button>
-                </div>
-            </div>
-
-            <div class="time row m-1 text-white bg-dark border border-dark rounded">
-                <div class="hour col-3" id="hour-bed">After hours
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-outline-secondary dropdown-toggle rounded" type="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">8am</a>
-                                <a class="dropdown-item" href="#">6pm</a>
-                                <a class="dropdown-item" href="#">7pm</a>
-                                <a class="dropdown-item" href="#">8pm</a>
-                                <div role="separator" class="dropdown-divider"></div>
-                            </div>
-                        </div>
-                         <input type="text" class="form-control" aria-label="Text input with dropdown button"> -->
-                    <!-- </div>
-                </div>
-                <div class="activity-div col-7 text-center" id="activity-divbed text-area">
-                    <input class="activity text-center rounded" type="text" id="activity-bed to-do">
-                </div>
-                <div class="btn-div col-2" id="btn-divbed">
-                    <button class="save-btn rounded" id="save-btnbed">Save</button>
-                </div>
-            </div>  -->
     </main>
     <script src="script.js"></script>
 </body>
