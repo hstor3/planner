@@ -5,96 +5,97 @@ $("#current").text(now);
 // correctly linked test
 console.log("hello");
 
-
-function backColor(timeSlots, index) {
-    if (moment(timeSlots).isBefore(moment())) {
-        document.getElementById(index).style.backgroundColor = "red"
-    } else if (moment(timeSlots).isAfter(moment())) {
-        document.getElementById(index).style.backgroundColor = "blue"
-    } else {
-        document.getElementById(index).style.backgroundColor = "yellow"
-    }
-};
-
 let timeSlots = [
-    "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm"
+    "9:00 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm"
 ];
 
-// fix times
-function compareHours() {
-let moments = moment().hours("hh");
-console.log(parseInt(timeSlots[0].split(" ")[0]));
+// compares times to moment times and changes background color based on time
+function compareHours(index, time) {
+    let moments = moment().hours("hh");
+    // console.log(parseInt(timeSlots[0].split(" ")[0]));
 
-for (var i = 0; i < timeSlots.length; i++) {
-    var hour = parseInt(timeSlots[i].split(" ")[0])
-    console.log(hour);
+    // for (var i = 0; i < timeSlots.length; i++) {
+    //     var hour = parseInt(timeSlots[i].split(" ")[0])
+    //     console.log(hour);
+console.log(index, time)
+let parsedTime = moment(time, ["h:m a"])
 
-    if (hour < moments) {
-        console.log("past")
-    }
-    // else if and else
-    // make a past class
+        if (parsedTime.isBefore(moments)) {
+            document.getElementById(index).classList.add("past");
+        } else if (parsedTime.isAfter(moments)) {
+            document.getElementById(index).classList.add("future");
+        } else {
+            document.getElementById(index).classList.add("present");
+        } 
 
-    // set hourly limits
-}
-}
-compareHours();
+
+        // else if and else addClass (from css to change color)
+       }   // make a past class
+
+        // set hourly limits
+// }
 
 $(document).ready(function () {
     for (let index = 0; index < timeSlots.length; index++) {
         const time = timeSlots[index];
-
-        let activityArray = JSON.parse(localStorage.getItem("9 am"));
+        
+        let activityArray = JSON.parse(localStorage.getItem(time));
         console.log(activityArray);
-
+        
         let html = `
-        <div id=${index} class="time row m-1 text-dark border border-dark rounded">
-            <div class="hour col-3" id="hour">${time}
-            </div>
-            <div class="activity-div col-7 text-center" id="activity-div text-area">
-                <input class="activity text-center rounded" type="text" id="activity-${index}">
-                <ul class="outtie" id="outtie-${index}"></ul>
-            </div>
-            <div class="btn-div col-2" id="btn-div">
-                <button class="save-btn rounded" id="${time}">Save</button>
-            </div>
-        </div>
-        `
-        $(".pre-scrollable").append(html);
+        <div id=${index} class="row time">
+            <div class="hour col-3" id="hour">${time}</div>
+            <div class="activity-div col-7" id="activity-div text-area">
+                <input class="activity" type="text" id="activity-${index}">
+                <ul class="output" id="output-${index}"></ul>
+                </div>
+                <div class="btn-div col-2" id="btn-div">
+                <button class="save-btn" id="${time}">Save</button>
+                </div>
+                </div>
+                
+                `
+                $(".pre-scrollable").append(html);
+                
+                // backColor(time, index);
+                compareHours(index, time);
 
-        backColor(time, index);
-    }
+                if (activityArray) {
 
+                let output = document.getElementById(`output-${index}`);
 
+                for (let j = 0; j < activityArray.length; j++) {
+                    let x = document.createElement("li");
+                    x.textContent = activityArray[j];
+                
+                    output.appendChild(x);
+                }
+            }
+        }
 });
 
 
-
+// saves the input text after you click the button and adds it to the ul
 $(document).on("click", "button.save-btn", function (event) {
-    
+
     console.log(event);
     console.log("hi");
     let rowId = event.target.parentNode.parentNode.id;
     let data = document.getElementById(`activity-${rowId}`);
-    
+
     let time = $(this).attr("id");
     // console.log(time);
     let hourArray = JSON.parse(localStorage.getItem(time)) || [];
     hourArray.push(data.value);
     console.log(hourArray);
-    
+
     localStorage.setItem(time, JSON.stringify(hourArray));
     console.log(localStorage);
 
-    let output = document.getElementById(`outtie-${rowId}`);
+    let output = document.getElementById(`output-${rowId}`);
     let x = document.createElement("li");
     x.textContent = data.value;
-    
+
     output.appendChild(x);
-    
 });
 
-function resetInput() {
-    document.getElementById(`activity-${index}`).value = "";
-    // document.getElementById(`activity-${index}`).reset();
-};
