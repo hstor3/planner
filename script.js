@@ -12,11 +12,7 @@ let timeSlots = [
 // compares times to moment times and changes background color based on time
 function compareHours(index, time) {
     let moments = moment().hours("hh");
-    // console.log(parseInt(timeSlots[0].split(" ")[0]));
 
-    // for (var i = 0; i < timeSlots.length; i++) {
-    //     var hour = parseInt(timeSlots[i].split(" ")[0])
-    //     console.log(hour);
 console.log(index, time)
 let parsedTime = moment(time, ["h:m a"])
 
@@ -24,17 +20,21 @@ let parsedTime = moment(time, ["h:m a"])
             document.getElementById(index).classList.add("past");
         } else if (parsedTime.isAfter(moments)) {
             document.getElementById(index).classList.add("future");
-        } else {
+        } else if (parsedTime.isSame(moments)) {
             document.getElementById(index).classList.add("present");
-        } 
+        } else {
+            console.log("wut?")
+        }
 
 
         // else if and else addClass (from css to change color)
-       }   // make a past class
+       }   
+       // make a past class
 
         // set hourly limits
 // }
 
+// what displays when the page is loaded
 $(document).ready(function () {
     for (let index = 0; index < timeSlots.length; index++) {
         const time = timeSlots[index];
@@ -99,3 +99,4 @@ $(document).on("click", "button.save-btn", function (event) {
     output.appendChild(x);
 });
 
+// find a save icon for html file in js
