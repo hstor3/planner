@@ -15,6 +15,7 @@ For the CSS file, I was quickly able to align, color and format everything I wan
 
 ## Link to deployed website
 
+https://hstor3.github.io/planner/
 
 ## Screenshot
 
